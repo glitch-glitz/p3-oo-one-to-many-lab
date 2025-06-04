@@ -25,13 +25,9 @@ class Pet:
 
     @owner.setter
     def owner(self, new_owner):
-        from .owner import Owner  # avoid circular import at top level
-
-        if not isinstance(new_owner, Owner):
+        if not isinstance(new_owner, Owner):  # reference directly
             raise Exception("owner must be an instance of Owner")
         self._owner = new_owner
-
-# from .pet import Pet
 
 
 class Owner:
